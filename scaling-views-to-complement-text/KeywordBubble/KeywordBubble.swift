@@ -8,7 +8,7 @@ import SwiftUI
 struct KeywordBubble: View {
     let keyword: String
     let symbol: String
-    @ScaledMetric(relativeTo: .title) var paddingWidth = 14.5
+    @ScaledMetric(relativeTo: .headline) var paddingWidth = 14.5
     var body: some View {
         Label(keyword, systemImage: symbol)
             .font(.title)
