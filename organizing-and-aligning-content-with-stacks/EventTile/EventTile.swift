@@ -13,12 +13,13 @@ struct Event {
 
 struct EventTile: View {
     let event: Event
-    let stripeHeight = 15.0
+    @ScaledMetric(relativeTo: .body) var stripeHeight = 30.0
+    
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Image(systemName: event.symbol)
                 .font(.title)
-            VStack(alignment: .leading) {
+            VStack( alignment: .leading) {
                 Text(event.title)
                     .font(.title)
                 Text(
@@ -37,11 +38,12 @@ struct EventTile: View {
                 Rectangle()
                     .opacity(0.3)
                 Rectangle()
-                    .frame(maxHeight: stripeHeight)
+                    .frame(height: stripeHeight)
             }
             .foregroundColor(.teal)
         }
-        .clipShape(RoundedRectangle(cornerRadius: stripeHeight, style: .continuous))
+        .cornerRadius(stripeHeight)
+//        .clipShape(RoundedRectangle(cornerRadius: stripeHeight, style: .continuous))
     }
 }
 
