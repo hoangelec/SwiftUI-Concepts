@@ -9,13 +9,14 @@ struct TrainCars: View {
         HStack {
             Spacer()
             VStack(alignment: .leading) {
-                Toggle("Long Train", isOn: $longerTrain)
+                Toggle("Long Train", isOn: $longerTrain.animation())
                 Text("Conditional:")
                 HStack {
                     Image(systemName: "train.side.rear.car")
-                    if longerTrain {
+//                    if longerTrain {
                         Image(systemName: "train.side.middle.car")
-                    }
+                        
+//                    }
                     Image(systemName: "train.side.front.car")
                 }
                 Divider()
