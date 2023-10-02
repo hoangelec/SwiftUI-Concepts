@@ -1,6 +1,6 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-*/
+ See LICENSE folder for this sample’s licensing information.
+ */
 
 import SwiftUI
 
@@ -12,15 +12,20 @@ enum TrainSymbol: String {
 
 struct TrainCar: View {
     let position: TrainSymbol
-    let showFrame: Bool
+    @State private var showFrame: Bool
     
-    init(_ position: TrainSymbol, showFrame: Bool = true) {
+    init(_ position: TrainSymbol, showFrame: Bool = false) {
         self.position = position
         self.showFrame = showFrame
     }
     var body: some View {
-        Image(systemName: position.rawValue)
-            .border(showFrame ? .gray : .clear, width: 0.5)
+        VStack(alignment: .trailing) {
+//            Toggle("Show Frame", isOn: $showFrame.animation())
+//                .fixedSize()
+            Image(systemName: position.rawValue)
+                .border(showFrame ? .gray : .clear, width: 0.5)
+                .background(Color(uiColor: .systemPink.withAlphaComponent(0.1)))
+        }
     }
 }
 
