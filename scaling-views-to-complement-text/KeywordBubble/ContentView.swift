@@ -3,14 +3,19 @@ See LICENSE folder for this sample’s licensing information.
 */
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+
     @State var isOn: Bool = false
     var body: some View {
 
         VStack {
             Toggle("Is On", isOn: $isOn.animation())
             Text("Default Padding")
+                .onTapGesture {
+                    print("Default padding tapped")
+                }
             KeywordBubbleDefaultPadding(keyword: "chives", symbol: "leaf")
                 .rotationEffect(isOn ? .degrees(0) : .degrees(180))
 
