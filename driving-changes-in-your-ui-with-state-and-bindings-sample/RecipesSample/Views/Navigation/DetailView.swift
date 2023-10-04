@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 struct DetailView: View {
     @Binding var recipeId: Recipe.ID?
@@ -41,3 +42,12 @@ struct DetailView: View {
         recipeBox.delete(recipe.id)
     }
 }
+
+struct DetailView_Previews: PreviewProvider {
+
+        static var previews: some View {
+            DetailView(recipeId: .constant(1001))
+                .environmentObject(RecipeBox(recipes: load("recipeData.json")))
+        }
+    }
+

@@ -21,10 +21,14 @@ enum SidebarItem: Hashable {
 struct SidebarView: View {
     @Binding var selection: SidebarItem?
     @ObservedObject var recipeBox: RecipeBox
+    @State var toggleOn: Bool = false
     
     var body: some View {
         List(selection: $selection) {
             Section("Library") {
+                NavigationLink(value: "Some text") {
+                    Toggle("Toggle title \(toggleOn ? "On" : "Off")", isOn: $toggleOn)
+                }
                 NavigationLink(value: SidebarItem.all) {
                     Text(SidebarItem.all.title)
                 }

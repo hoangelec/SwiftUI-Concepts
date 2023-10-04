@@ -2,6 +2,6 @@ import SwiftUI
 
 struct RecipeNotSelectedView: View {
     var body: some View {
-        Text("Select a recipe.")
+        Text("No recipes selected. Select a recipe.")
     }
 }
